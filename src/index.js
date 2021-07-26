@@ -1,11 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Routes from './router/routes'
 
 ReactDOM.render(
   <React.StrictMode>
-    <h1>teste Carine</h1>
+    <Routes />
   </React.StrictMode>,
   document.getElementById('root')
-);
+)
 
 
