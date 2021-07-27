@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.css'
 import logo from '../../assets/logo.svg'
-import iconUsers from '../../assets/users.svg'
+import iconUsers from '../../assets/icons/users.svg'
 
 const PageHeader = () => (
   <header className="header">
