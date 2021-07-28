@@ -1,9 +1,9 @@
 import React from 'react'
-import PageHeader from '../../components/Header'
+import Header from '../../components/Header'
 
 const Home = () => (
   <React.StrictMode>
-    <PageHeader />
+    <Header />
   </React.StrictMode>
 )
 
