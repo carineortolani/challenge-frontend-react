@@ -4,8 +4,8 @@ import logo from '../../assets/logo.svg'
 import iconUsers from '../../assets/icons/users.svg'
 
 const Header = () => (
-  <header>
-    <div>
+  <header className={css.header}>
+    <div className={css.container}>
       <img src={logo} alt="Logo" />
       <button>
         Your team
