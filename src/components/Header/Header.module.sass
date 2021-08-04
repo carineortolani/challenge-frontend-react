@@ -4,7 +4,9 @@
 .header
   width: 100%
   background-color: $black
+  @include flex(flex, center)
 
 .container
   width: 70%
-  @include flex
+  @include flex(flex, space-between, center)
+
