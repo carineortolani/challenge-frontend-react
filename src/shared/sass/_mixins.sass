@@ -1,6 +1,11 @@
-@mixin flex($display: inline, $justify: normal, $align: normal, $direction: row, $wrap: nowrap)
+@import ./_functions
+
+@mixin flex($display: flex, $justify: normal, $align: normal, $direction: row, $wrap: nowrap)
   display: $display
   justify-content: $justify
   align-items: $align
   flex-direction: $direction
   flex-wrap: $wrap
+
+@mixin font($weight: normal, $size:16, $height: 1em , $family: Roboto)
+  font: $weight rem($size)/$height $family, sans-serif
