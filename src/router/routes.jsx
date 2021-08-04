@@ -11,10 +11,10 @@ const Routes = () => (
       </Route>
       {/* <Route path="/profile">
           <Home />
-      </Route>
+      </Route> */}
       <Route path="/favorites">
           <Home />
-      </Route> */}
+      </Route>
       <Redirect from="*" to="/home" />
     </Switch>
   </BrowserRouter>
