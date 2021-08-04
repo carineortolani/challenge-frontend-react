@@ -45,3 +45,5 @@ body, html, .root {
 }
 
 body { line-height: 1em; }
+
+a { text-decoration: none; }

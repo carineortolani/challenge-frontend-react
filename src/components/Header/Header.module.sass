@@ -2,11 +2,34 @@
 @import '../../shared/sass/_mixins'
 
 .header
-  width: 100%
-  background-color: $black
   @include flex(flex, center)
 
-.container
-  width: 70%
-  @include flex(flex, space-between, center)
+  width: 100%
+  padding: 20px 0
+  background-color: $black
 
+.container
+  @include flex(flex, space-between, center, row, wrap)
+  width: 75%
+
+.logo
+  height: 80%
+
+.btnTeam
+  @include flex(flex, space-between, center)
+  @include font(400, 20)
+
+  height: 50px
+  padding: 10px
+
+  color: $white
+
+  background-color: $red
+  border: none
+  border-radius: 4px 17px
+
+  cursor: pointer
+
+.btnTeamIcon
+  width: 24px
+  margin-left: 10px
