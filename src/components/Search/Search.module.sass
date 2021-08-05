@@ -1,0 +1,44 @@
+@import '../../shared/sass/_variables'
+@import '../../shared/sass/_mixins'
+
+.container
+  @include flex(flex, center, center, column)
+  width: 75%
+
+.title
+  @include font(700, 42, 1.2)
+
+  // width:
+  color: $white
+
+.search
+  @include flex(flex, center)
+
+  width: 100%
+  margin-top: 25px
+
+.inputSearch
+  @include font(400, 24)
+
+  // width:
+  padding: 15px
+
+  outline: none
+  border: none
+  background-color: #f5f5f5
+  border-radius: 4px 0 0 15px
+
+  &:placeholder
+    @include font(400, 24)
+    color: #858585
+
+.btnSearch
+  width: 90px
+  height: 70px
+  margin-left: -3px
+
+  background-color: $red
+  border-radius: 5px 15px 5px 0px
+  border: none
+
+  cursor: pointer
