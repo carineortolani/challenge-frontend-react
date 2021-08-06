@@ -3,24 +3,24 @@
 
 .container
   @include flex(flex, center, center, column)
-  width: 75%
+  width: 1000px
 
 .title
   @include font(700, 42, 1.2)
 
-  // width:
+  max-width: 70%
   color: $white
 
 .search
   @include flex(flex, center)
 
-  width: 100%
+  width: 70%
   margin-top: 25px
 
 .inputSearch
   @include font(400, 24)
 
-  // width:
+  width: 100%
   padding: 15px
 
   outline: none
@@ -28,17 +28,16 @@
   background-color: #f5f5f5
   border-radius: 4px 0 0 15px
 
-  &:placeholder
-    @include font(400, 24)
+  &::placeholder
     color: #858585
 
 .btnSearch
-  width: 90px
+  width: 105px
   height: 70px
   margin-left: -3px
 
   background-color: $red
-  border-radius: 5px 15px 5px 0px
+  border-radius: 5px 20px 5px 0px
   border: none
 
   cursor: pointer

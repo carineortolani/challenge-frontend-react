@@ -1,10 +1,11 @@
 import React from 'react'
 import css from './Section.module.sass'
-import Search from '../Search'
 
-const Section = () => (
+const Section = ({children}) => (
   <section className={css.section}>
-      <Search></Search>
+    <div className={css.container}>
+      {children}
+    </div>
   </section>
 )
 
