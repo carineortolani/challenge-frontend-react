@@ -9,9 +9,9 @@ const Routes = () => (
       <Route path="/home">
           <Home />
       </Route>
-      {/* <Route path="/profile">
+      <Route path="/profile">
           <Home />
-      </Route> */}
+      </Route>
       <Route path="/favorites">
           <Home />
       </Route>
