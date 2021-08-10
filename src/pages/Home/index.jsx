@@ -1,9 +1,10 @@
 import React from 'react'
-import Header from '../../components/Header'
-import Section from '../../components/Section'
+import Header from '../../layout/Header'
+import Section from '../../layout/Banner'
 import Search from '../../components/Search'
 import Titles from '../../components/Titles'
 import ListCards from '../../components/ListCards'
+import Footer from '../../layout/Footer'
 
 const Home = () => (
   <React.StrictMode>
@@ -13,6 +14,7 @@ const Home = () => (
     </Section>
     <Titles title="Characters" subtitle="# results"/>
     <ListCards />
+    <Footer />
   </React.StrictMode>
 )
 
