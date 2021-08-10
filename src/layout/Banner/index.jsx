@@ -1,5 +1,5 @@
 import React from 'react'
-import css from './Section.module.sass'
+import css from './Banner.module.sass'
 
 const Section = ({children}) => (
   <section className={css.section}>

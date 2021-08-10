@@ -1,28 +1,30 @@
 @import '../../shared/sass/_variables'
 @import '../../shared/sass/_mixins'
 
-// /* topo | direita | inferior | esquerda */
 .card
   @include flex(flex, flex-start, flex-start, column)
 
   position: relative
 
-  width: 270px
-  height: 376px
-  margin: 25px 25px 25px 0
+  width: 250px
+  height: 356px
+  margin: 15px 30px 25px 0
 
   color: $text-color
   background-color: $white
   border-radius: 10px 30px
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
 
+.imgHero
+  width: 250px
+
 .btnFavorite
   position: absolute
-  left: 205px
-  top: 175px
+  left: 190px
+  top: 158px
 
-  width: 54px
-  height: 54px
+  width: 50px
+  height: 50px
 
   background-color: #f5f5f5
   background-image: url('../../assets/icons/btnIconBlack.svg')

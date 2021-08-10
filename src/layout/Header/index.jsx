@@ -9,7 +9,7 @@ const Header = () => (
     <div className={css.container}>
 
       <Link to="/home">
-        <img src={logo} alt="Logo" />
+        <img src={logo} alt="Logo" className={css.logo} />
       </Link>
 
       <Link to="/favorites">
