@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 
 import Home from '../pages/Home'
+import Profile from '../pages/Profile'
 
 const Routes = () => (
   <BrowserRouter>
@@ -10,7 +11,7 @@ const Routes = () => (
           <Home />
       </Route>
       <Route path="/profile">
-          <Home />
+          <Profile />
       </Route>
       <Route path="/favorites">
           <Home />
