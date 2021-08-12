@@ -10,3 +10,29 @@
 
 @mixin font($weight: normal, $size:16, $height: 1em , $family: $base-family)
   font: $weight rem($size)/$height $family
+
+@mixin media($point)
+  @if $point == desktop
+    @media screen and ( max-width: 2560px )
+      width: 80%
+      @content
+
+  @if $point == laptop
+    @media screen and ( max-width: 1440px )
+      width: 75%
+      @content
+
+  @if $point == tablet
+    @media screen and ( max-width: 768px )
+      width: 90%
+      @content
+
+  @if $point == phablet
+    @media screen and ( max-width: 425px )
+      width: 90%
+      @content
+
+  @if $point == mobile
+    @media screen and ( max-width: 375px )
+      width: 90%
+      @content
