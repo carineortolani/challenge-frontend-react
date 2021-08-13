@@ -1,6 +1,21 @@
 @import '../../shared/sass/_variables'
 @import '../../shared/sass/_mixins'
 
+.container
+  @include flex(flex, flex-end, flex-start, column)
+  width: 75%
+
+.title
+  @include font(700, 40, 1.1em)
+
+  margin-left: 3%
+  max-width: 500px
+  color: $white
+
+.listFavorites
+  @include flex(flex, space-between, center, row, wrap)
+  margin-bottom: -145px
+
 .card
   @include flex(flex, flex-start, flex-start, column)
 
@@ -26,8 +41,8 @@
   width: 50px
   height: 50px
 
-  background-color: #f5f5f5
-  background-image: url('../../assets/icons/btnIconBlack.svg')
+  background-color: $red
+  background-image: url('../../assets/icons/btnIconWhite.svg')
   background-position: center
   background-repeat: no-repeat
   background-size: 19px
@@ -38,8 +53,8 @@
   cursor: pointer
 
   &:hover
-    background-color: $red
-    background-image: url('../../assets/icons/btnIconWhite.svg')
+    background-color: #f5f5f5
+    background-image: url('../../assets/icons/btnIconBlack.svg')
 
 .hero
   @include font(700, 32)
