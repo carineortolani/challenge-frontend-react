@@ -3,7 +3,9 @@
 
 .container
   @include flex(flex, flex-end, flex-start, column)
+
   width: 100%
+  margin-bottom: -50px
 
 .title
   @include font(700, 40, 1.1em)
@@ -38,5 +40,5 @@
   margin-bottom: 29px
 
 .text
-  @include font(400, 20)
+  @include font(400, 20, 1.1em)
   max-width: 600px

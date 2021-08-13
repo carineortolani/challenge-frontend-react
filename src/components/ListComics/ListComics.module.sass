@@ -2,11 +2,14 @@
 @import '../../shared/sass/_mixins'
 
 .listComics
-  @include flex(flex, center)
+  @include flex(flex, center, center)
 
   width: 100%
   background-color: $bkg-color
 
 .container
-  width: 75%
+  @include flex(flex, center, center, column)
+
+  width: 100%
   height: auto
+  margin-top: 50px
