@@ -13,7 +13,7 @@ const Header = () => (
       </Link>
 
       <Link to="/favorites">
-        <button className={css.btnTeam}>
+        <button className={css.btnTeam} title="Your favorite team">
           Your team
           <img
             src={iconUsers}
