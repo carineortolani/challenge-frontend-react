@@ -12,7 +12,7 @@ const Footer = () => (
           target="_blank"
           rel="noopener noreferrer"
         >
-            Carine Ortolani
+          Carine Ortolani
         </a>
       </p>
     </div>

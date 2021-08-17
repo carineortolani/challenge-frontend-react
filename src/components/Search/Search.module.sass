@@ -2,25 +2,24 @@
 @import '../../shared/sass/_mixins'
 
 .container
-  @include flex(flex, center, center, column)
-  width: 1000px
+  @include flex(flex, center, flex-start, column)
 
 .title
   @include font(700, 40, 1.1em)
 
-  max-width: 70%
+  width: 600px
   color: $white
 
 .search
-  @include flex(flex)
+  @include flex(flex, flex-start)
 
-  width: 70%
+  width: 95%
   margin-top: 25px
 
 .inputSearch
   @include font(400, 22)
 
-  width: 75%
+  width: 100%
   padding: 15px
 
   outline: none
@@ -41,3 +40,41 @@
   border: none
 
   cursor: pointer
+
+@media screen and ( max-width: 670px )
+  .container
+    width: 85%
+
+  .title
+    @include font(700, 30, 1.1em)
+    width: 500px
+
+  .btnSearch
+    width: 80px
+    height: 55px
+
+@media screen and ( max-width: 510px )
+  .title
+    @include font(700, 25, 1.1em)
+    width: 300px
+
+  .inputSearch
+    @include font(400, 18)
+    padding: 10px
+
+  .btnSearch
+      width: 75px
+      height: 50px
+
+@media screen and ( max-width: 435px )
+  .title
+    @include font(700, 20, 1.1em)
+    width: 300px
+
+  .inputSearch
+    @include font(400, 15)
+    padding: 10px
+
+  .btnSearch
+      width: 75px
+      height: 50px
