@@ -1,19 +1,44 @@
-import React from 'react'
-import Header from '../../layout/Header'
+import React, { useEffect, useState } from 'react'
+
+import { getCharacters } from '../../services/characters'
+
 import Banner from '../../layout/Banner'
 import Search from '../../components/Search'
-import ListCards from '../../components/ListCards'
-import Footer from '../../layout/Footer'
+import Titles from '../../components/Titles'
+import Card from '../../components/Card'
 
-const Home = () => (
-  <React.StrictMode>
-    <Header />
-    <Banner>
-      <Search />
-    </Banner>
-    <ListCards />
-    <Footer />
-  </React.StrictMode>
-)
+import css from './Home.module.sass'
+
+const Home = () => {
+  const [characters, setCharacters] = useState({})
+
+  useEffect(() => {
+    getCharacters()
+      .then(response => setCharacters(response))
+      .catch(error => console.error(error))
+  }, [])
+
+  return (
+    <>
+      <Banner>
+        <Search />
+      </Banner>
+
+      <div className={css.container}>
+        <Titles title="Characters" subtitle={`${characters.total} results`} />
+
+        <div className={css.cardsList}>
+          {characters.results?.map(result => (
+            <Card
+              name={result.name}
+              description={result.description}
+              thumbnail={result.thumbnail}
+            />
+          ))}
+        </div>
+      </div>
+    </>
+  )
+}
 
 export default Home
