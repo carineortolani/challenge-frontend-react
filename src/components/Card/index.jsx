@@ -1,15 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import css from './Card.module.sass'
 import { Link } from 'react-router-dom'
 import spider from '../../assets/images/spider.png'
 
 const Card = () => {
-  const [favoriteHero, setFavoriteHero] = useState(JSON.parse(localStorage.getItem('@app-Marvel/YourTeam')) || [])
-
-  const favorite = e => {
-    e.preventDefault();
-    setFavoriteHero([...favoriteHero, { favorite: true }])
-  }
 
   return (
     <Link to="/profile" className={css.card}>
@@ -21,7 +15,7 @@ const Card = () => {
       <button
         className={css.btnFavorite}
         title="Favorite Hero"
-        onClick={favorite}
+        onClick={e => e.preventDefault()}
       />
       <h4 className={css.hero}> {/* {hero} */} Spider Man </h4>
       <p className={css.description}> {/* {description} */} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel convallis velit. </p>
