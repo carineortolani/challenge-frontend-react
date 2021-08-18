@@ -43,6 +43,19 @@
   @include font(400, 20, 1.1em)
   max-width: 600px
 
+@media screen and ( max-width: 550px )
+
+@media screen and ( max-width: 690px )
+  .title
+    @include font(700, 30, 1.1em)
+    width: 400px
+
+  .profile
+    @include flex(flex, center, center,  column)
+
+  .description
+    @include flex(flex, center, center, column)
+
 @media screen and ( max-width: 890px )
   .container
     margin-bottom: -65px
