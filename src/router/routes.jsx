@@ -5,20 +5,22 @@ import Home from '../pages/Home'
 import Profile from '../pages/Profile'
 import TeamFavorite from '../pages/Favorites'
 
+import Header from '../layout/Header'
+import Footer from '../layout/Footer'
+
 const Routes = () => (
   <BrowserRouter>
+    <Header />
+
     <Switch>
-      <Route path="/home">
-          <Home />
-      </Route>
-      <Route path="/profile">
-          <Profile />
-      </Route>
-      <Route path="/favorites">
-          <TeamFavorite />
-      </Route>
+      <Route exact path="/home" component={Home} />
+      <Route exact path="/profile" component={Profile} />
+      <Route exact path="/favorites" component={TeamFavorite} />
+
       <Redirect from="*" to="/home" />
     </Switch>
+
+    <Footer />
   </BrowserRouter>
 )
 
