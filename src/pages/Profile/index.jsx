@@ -1,19 +1,19 @@
 import React from 'react'
-import Header from '../../layout/Header'
+
 import Banner from '../../layout/Banner'
 import Character from '../../components/Character'
-import Footer from '../../layout/Footer'
 import ListComics from '../../components/ListComics'
 
+import css from './Profile.module.sass'
+
 const Profile = () => (
-  <React.StrictMode>
-    <Header />
+  <>
     <Banner>
       <Character />
     </Banner>
+    <div className={css.container}></div>
     <ListComics />
-    <Footer />
-  </React.StrictMode>
+  </>
 )
 
 export default Profile
