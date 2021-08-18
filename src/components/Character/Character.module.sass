@@ -43,20 +43,21 @@
   @include font(400, 20, 1.1em)
   max-width: 600px
 
-@media screen and ( max-width: 1000px )
+@media screen and ( max-width: 890px )
   .container
     margin-bottom: -65px
 
   .profile
-    @include flex(flex, center, center, column)
-
     height: auto
 
   .imgHero
-    margin: 25px 0 0 0
+    margin-top: 25px
 
-  .description
-    @include flex(flex, center, center, column)
+  .name
+    margin-bottom: 15px
+
+  .text
+    @include font(400, 18, 1.1em)
 
 @media screen and ( min-width: 1650px )
   .text

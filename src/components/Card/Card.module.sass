@@ -8,7 +8,7 @@
 
   width: 242px
   height: 340px
-  margin: 15px 0 25px 0
+  margin: 15px 10px 25px 0
 
   color: $text-color
   background-color: $white
@@ -53,9 +53,9 @@
 
 .description
   @include font(400, 15, 1.2em)
-  padding: 0 24px
+  margin: 0 24px
 
-@media screen and ( max-width: 1024px )
+@media screen and ( max-width: 1350px )
   .card
     width: 230px
     height: 320px
@@ -66,3 +66,9 @@
   .btnFavorite
     left: 176px
     top: 145px
+
+  .hero
+    @include font(700, 30)
+
+  .description
+    margin: 0 20px
