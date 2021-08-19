@@ -11,8 +11,9 @@ const Profile = () => (
     <Banner>
       <Character />
     </Banner>
-    <div className={css.container}></div>
-    <ListComics />
+    <div className={css.container}>
+      <ListComics />
+    </div>
   </>
 )
 
