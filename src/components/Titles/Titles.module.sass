@@ -2,23 +2,18 @@
 @import '../../shared/sass/_mixins'
 
 .titles
-  @include flex(flex, center)
+  @include flex(flex, space-between, center, row, wrap)
 
   width: 100%
   height: 12vh
-  background-color: $bkg-color
 
-.container
-  @include flex(flex, space-between, center, row, wrap)
-  width: 75%
+  .title
+    @include font(700, 39)
+    margin-right: 15px
 
-.title
-  @include font(700, 39)
-  margin-right: 15px
-
-.subtitle
-  @include font(700, 22)
-  margin-right: 5%
+  .subtitle
+    @include font(700, 22)
+    margin-right: 5%
 
 @media screen and ( max-width: 435px )
   .title
@@ -26,3 +21,7 @@
 
   .subtitle
     @include font(700, 18)
+
+@media screen and ( max-width: 455px )
+  .titles
+    @include flex(flex, center, center, row, wrap)

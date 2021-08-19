@@ -28,8 +28,9 @@ const Home = () => {
         <Titles title="Characters" subtitle={`${characters.total} results`} />
 
         <div className={css.cardsList}>
-          {characters.results?.map(result => (
+          {characters.results?.map((result, key) => (
             <Card
+              key={key}
               name={result.name}
               description={result.description}
               thumbnail={result.thumbnail}
