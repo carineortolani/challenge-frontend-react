@@ -15,8 +15,10 @@ const Card = ({ name, description, thumbnail }) => {
         title="Favorite Hero"
         onClick={e => e.preventDefault()}
       />
-      <h4 className={css.hero}>{name}</h4>
-      <p className={css.description}>{description}</p>
+      <h4 className={css.hero} title={name}>{name}</h4>
+      <p className={css.description} title="Click to see full description and comics">
+        {description || "Description is being created."}
+      </p>
     </Link>
   )
 }
