@@ -12,7 +12,7 @@
     @include flex(flex, space-between, center, row, wrap)
     @include font(400, 17)
 
-    width: 1200px
+    width: 1100px
     padding: 0 15px
     margin: auto
 
@@ -21,3 +21,25 @@
     .developer
       margin-left: 10px
       color: #999
+
+  @media screen and ( min-width: 1900px )
+    .container
+      width: 1375px
+
+  @media screen and ( max-width: 1130px )
+    .container
+      width: 825px
+
+  @media screen and ( max-width: 870px )
+    .container
+      @include flex(flex, center, center, row, wrap)
+      width: 555px
+
+  @media screen and ( max-width: 610px )
+    .container
+      width: 455px
+
+  @media screen and ( max-width: 455px )
+    .container
+      width: 90%
+

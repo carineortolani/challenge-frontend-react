@@ -10,7 +10,7 @@
 
   .container
     @include flex(flex, space-between, center, row, wrap)
-    width: 1200px
+    width: 1100px
     padding: 0 15px
     margin: auto
 
@@ -39,11 +39,31 @@
         width: 24px
         margin-left: 10px
 
-@media screen and ( max-width: 695px )
+    @media screen and ( max-width: 710px )
 
-  .logo
-    display: none
+      .logo
+        display: none
 
-  .iconlogo
-    display: inline
-    height: 65px
+      .iconlogo
+        display: inline
+        height: 65px
+
+  @media screen and ( min-width: 1900px )
+    .container
+      width: 1375px
+
+  @media screen and ( max-width: 1130px )
+    .container
+      width: 825px
+
+  @media screen and ( max-width: 870px )
+    .container
+      width: 555px
+
+  @media screen and ( max-width: 610px )
+    .container
+      width: 455px
+
+  @media screen and ( max-width: 455px )
+    .container
+      width: 90%
