@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import css from './Card.module.sass'
 
-const Card = ({ name, description, thumbnail }) => {
+const Card = ({ id, name, description, thumbnail }) => {
   return (
     <Link to="/profile" className={css.card}>
       <img

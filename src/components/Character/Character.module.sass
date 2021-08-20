@@ -4,6 +4,8 @@
 .container
   @include flex(flex, flex-end, flex-start, column)
 
+  position: relative
+
   width: 1100px
   padding: 0 15px
   margin: 0 auto -50px
@@ -44,5 +46,23 @@
         @include font(400, 20, 1.1em)
         max-width: 600px
 
-@media screen and ( max-width: 550px )
+@media screen and ( min-width: 1900px )
+  .container
+    width: 1375px
+
+@media screen and ( max-width: 1130px )
+  .container
+    width: 825px
+
+@media screen and ( max-width: 870px )
+  .container
+    width: 555px
+
+@media screen and ( max-width: 610px )
+  .container
+    width: 455px
+
+@media screen and ( max-width: 455px )
+  .container
+    width: 90%
 
