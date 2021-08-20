@@ -58,8 +58,12 @@
 
   .description
     @include font(400, 15, 1.2em)
+
     margin: 0 25px
-    max-height: 6.5ch
+
+    display: -webkit-box
+    -webkit-box-orient: vertical
+    -webkit-line-clamp: 3
+
     overflow: hidden
     text-overflow: ellipsis
-
