@@ -1,19 +1,18 @@
 import React from 'react'
 import css from './Comic.module.sass'
-import spiderBlack from '../../assets/images/spiderBlack.png'
 import iconInfo from '../../assets/icons/iconInfo.svg'
 
-const Comic = () => (
+const Comic = ({ title, images, prices, dates, pages, description }) => (
   <div className={css.comic}>
-    <img src={spiderBlack} alt="Hero" className={css.imgHero} />
+    <img src={images} alt={`Comic book ${title}`} className={css.imgHero} />
     <div className={css.information}>
-      <h3 className={css.title}> {/* {title} */} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pretium metus interdum dolor. </h3>
+      <h3 className={css.title}>{title}</h3>
       <ul className={css.listInfo}>
-        <li>01/01/1990</li>
-        <li><img src={iconInfo} alt="Circle" className={css.iconInfo} /> 47 pages</li>
-        <li><img src={iconInfo} alt="Circle" className={css.iconInfo} /> U$0.90</li>
+        <li>{dates}</li>
+        <li><img src={iconInfo} alt="Circle" className={css.iconInfo} />{pages}</li>
+        <li><img src={iconInfo} alt="Circle" className={css.iconInfo} />{prices}</li>
       </ul>
-      <p className={css.description}> {/* {description} */} Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium... </p>
+      <p className={css.description}>{description || "Description is being created."}</p>
     </div>
   </div>
 )
