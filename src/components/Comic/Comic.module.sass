@@ -4,7 +4,8 @@
 .comic
   @include flex(flex, flex-start)
 
-  width: 75%
+  width: 100%
+  height: 265px
   margin-bottom: 40px
 
   background-color: $white
@@ -27,3 +28,10 @@
 
 .description
   @include font(400, 19, 1.1em)
+
+  display: -webkit-box
+  -webkit-box-orient: vertical
+  -webkit-line-clamp: 3
+
+  overflow: hidden
+  text-overflow: ellipsis
