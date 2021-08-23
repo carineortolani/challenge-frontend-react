@@ -4,7 +4,7 @@ import css from './Card.module.sass'
 
 const Card = ({ id, name, description, thumbnail }) => {
   return (
-    <Link to="/profile" className={css.card}>
+    <Link to={`/profile/${id}`} className={css.card}>
       <img
         src={thumbnail}
         alt={name}
