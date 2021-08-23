@@ -1,7 +1,7 @@
 import { api } from './api'
 
-export const getProfile = async (id) => {
-  const response = await api.get('/characters/{characterId}')
+export const getProfile = async (characterId) => {
+  const response = await api.get(`/characters/${characterId}`)
 
   const results = response.data.data.results.map(result => ({
     name: result.name,
