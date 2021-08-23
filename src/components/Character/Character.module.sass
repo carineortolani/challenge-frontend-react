@@ -29,13 +29,16 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
 
     .imgHero
-      margin-left: 35px
       height: 170px
+      width: 180px
+      margin-left: 95px
+      border-radius: 100%
 
     .description
       @include flex(flex, center, flex-start, column)
 
       height: 100%
+      width: 100%
       padding: 35px
 
       .name
@@ -49,6 +52,11 @@
 @media screen and ( min-width: 1900px )
   .container
     width: 1375px
+
+    .profile
+      .description
+        .text
+          max-width: 800px
 
 @media screen and ( max-width: 1130px )
   .container
