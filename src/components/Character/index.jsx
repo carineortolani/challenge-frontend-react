@@ -16,7 +16,7 @@ const Character = ({ name, description, thumbnail }) => {
         />
         <div  className={css.description}>
           <h2 className={css.name}>{name}</h2>
-          <p className={css.text}>{description}</p>
+          <p className={css.text}>{description || "Description is being created."}</p>
         </div>
       </div>
     </div>
