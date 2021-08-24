@@ -25,7 +25,7 @@ const Profile = () => {
       .then(response => setComics(response))
       .catch(error => console.error(error))
   }, [id])
-  console.log(comics)
+  console.log('comics', comics)
 
   return (
     <>
@@ -45,7 +45,7 @@ const Profile = () => {
           {comics.results?.map(result => (
             <Comic
               key={result.id}
-              images={result.images}
+              thumbnail={result.thumbnail}
               title={result.title}
               pages={result.pages}
               description={result.description}

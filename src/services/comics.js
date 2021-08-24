@@ -10,7 +10,7 @@ export const getComics = async (characterId) => {
     prices: result.prices,
     pages: result.pageCount,
     description: result.description,
-    images: `${result.images.path}.${result.images.extension}`
+    thumbnail: `${result.thumbnail.path}.${result.thumbnail.extension}`
   }))
 
   return {

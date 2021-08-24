@@ -2,9 +2,9 @@ import React from 'react'
 import css from './Comic.module.sass'
 import iconInfo from '../../assets/icons/iconInfo.svg'
 
-const Comic = ({ title, images, prices, dates, pages, description }) => (
+const Comic = ({ title, thumbnail, prices, dates, pages, description }) => (
   <div className={css.comic}>
-    <img src={images} alt={`Comic book ${title}`} className={css.imgHero} />
+    <img src={thumbnail} alt={`Comic book ${title}`} className={css.imgHero} />
     <div className={css.information}>
       <h3 className={css.title}>{title}</h3>
       <ul className={css.listInfo}>
