@@ -47,7 +47,9 @@ const Profile = () => {
               key={result.id}
               thumbnail={result.thumbnail}
               title={result.title}
+              dates={result.dates}
               pages={result.pages}
+              prices={result.prices}
               description={result.description}
             />
           ))}

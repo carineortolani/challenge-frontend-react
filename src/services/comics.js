@@ -6,8 +6,8 @@ export const getComics = async (characterId) => {
   const results = response.data.data.results.map(result => ({
     id: result.id,
     title: result.title,
-    dates: result.dates,
-    prices: result.prices,
+    dates: result.dates[0].date,
+    prices: result.prices[0].price,
     pages: result.pageCount,
     description: result.description,
     thumbnail: `${result.thumbnail.path}.${result.thumbnail.extension}`
