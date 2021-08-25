@@ -1,0 +1,21 @@
+@import '../../shared/sass/_variables'
+@import '../../shared/sass/_mixins'
+
+.container
+  @include flex(flex, center, flex-start, column)
+
+  position: relative
+
+  width: 1100px
+  padding: 0 15px
+  margin: 0
+
+  .title
+    @include font(700, 40, 1.1em)
+
+    margin-left: 3%
+    max-width: 500px
+    color: $white
+
+  .listFavorites
+    @include flex(flex, space-between, center, row, wrap)
