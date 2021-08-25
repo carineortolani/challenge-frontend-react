@@ -20,6 +20,7 @@ const Character = ({ name, description, thumbnail }) => {
         </div>
       </div>
     </div>
-)}
+  )
+}
 
 export default Character

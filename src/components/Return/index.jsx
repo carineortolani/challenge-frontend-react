@@ -10,10 +10,13 @@ const Return = () => {
   return (
     <button className={css.btnReturn} onClick={back}>
       Return to previous page
-      <img src={iconReturn} alt="Return" className={css.icon}/>
+      <img
+        src={iconReturn}
+        alt="Return"
+        className={css.icon}
+      />
     </button>
   )
 }
-
 
 export default Return
