@@ -25,7 +25,6 @@ const Profile = () => {
       .then(response => setComics(response))
       .catch(error => console.error(error))
   }, [id])
-  console.log('comics', comics)
 
   return (
     <>
