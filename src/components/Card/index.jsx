@@ -8,20 +8,22 @@ const Card = ({ id, name, description, thumbnail }) => {
   const favorite = e => {
     e.preventDefault()
 
-    setFavoriteHero([
-      ...favoriteHero,
-      {
-        favorite: true,
-        id,
-        name,
-        description,
-        thumbnail
-      }
-    ])
+    if(!favoriteHero.find(hero => hero.id === id)) {
+      setFavoriteHero([
+        ...favoriteHero,
+        {
+          favorite: true,
+          id,
+          name,
+          description,
+          thumbnail
+        }
+      ])
+    } else setFavoriteHero(favoriteHero.filter(hero => hero.id !== id))
   }
 
   useEffect(() => localStorage.setItem('@app-Marvel/YourTeam', JSON.stringify(favoriteHero)), [favoriteHero])
-  console.log(favoriteHero)
+
   return (
     <Link to={`/profile/${id}`} className={css.card}>
       <img
