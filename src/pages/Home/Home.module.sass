@@ -1,6 +1,47 @@
 @import '../../shared/sass/_variables'
 @import '../../shared/sass/_mixins'
 
+.containerSearch
+  @include flex(flex, center, flex-start, column)
+
+  .title
+    @include font(700, 40, 1.1em)
+
+    width: 600px
+    color: $white
+
+  .search
+    @include flex(flex, flex-start)
+
+    width: 95%
+    margin-top: 25px
+
+    .inputSearch
+      @include font(400, 22)
+
+      width: 100%
+      padding: 15px
+
+      outline: none
+      border: none
+      background-color: #f5f5f5
+      border-radius: 4px 0 0 15px
+
+      &::placeholder
+        color: #858585
+
+    .btnSearch
+      width: 90px
+      height: 65px
+      margin-left: -3px
+
+      background-color: $red
+      border-radius: 5px 20px 5px 0px
+      border: none
+
+      cursor: pointer
+
+
 .container
   @include flex(flex, center, center, column)
 
@@ -21,8 +62,17 @@
     width: 825px
 
 @media screen and ( max-width: 870px )
-  .container
+  .container,
+  .containerSearch
     width: 555px
+
+    .title
+      @include font(700, 35, 1.1em)
+      width: 500px
+
+    .btnSearch
+      width: 80px
+      height: 57px
 
 @media screen and ( max-width: 610px )
   .container
@@ -31,6 +81,23 @@
     .cardsList
       @include flex(flex, center, center, row, wrap)
 
+  .containerSearch
+    width: 455px
+
+    .title
+      @include font(700, 25, 1.1em)
+      width: 300px
+
+    .search
+      .inputSearch
+        @include font(400, 18)
+        padding: 10px
+
+      .btnSearch
+          width: 75px
+          height: 55px
+
 @media screen and ( max-width: 455px )
-  .container
+  .container,
+  .containerSearch
     width: 90%
