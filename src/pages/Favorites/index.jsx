@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import css from './Favorites.module.sass'
 import Banner from '../../layout/Banner'
 
-// import Card from '../../components/Card'
+import Card from '../../components/Card'
 import Return from '../../components/Return'
 
 const TeamFavorite = () => {
+  const [teamFavorite, setTeamFavorite] = useState([])
 
+  useEffect(() => { setTeamFavorite(JSON.parse(localStorage.getItem('@app-Marvel/YourTeam'))) }, [])
 
-    return (
+  return (
     <>
       <Banner>
         <div className={css.container}>
@@ -17,7 +19,7 @@ const TeamFavorite = () => {
         </div>
       </Banner>
 
-      {/* <div className={css.cardsList}>
+      <div className={css.listFavorites}>
         {teamFavorite?.map((result, key) => (
           <Card
             key={key}
@@ -27,7 +29,7 @@ const TeamFavorite = () => {
             thumbnail={result.thumbnail}
           />
         ))}
-      </div> */}
+      </div>
     </>
   )
 }
