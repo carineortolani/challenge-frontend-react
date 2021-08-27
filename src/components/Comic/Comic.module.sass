@@ -39,3 +39,30 @@
 
     overflow: hidden
     text-overflow: ellipsis
+
+@media screen and ( max-width: 870px )
+  .comic
+    @include flex(flex, center, center, column)
+    height: auto
+
+    .imgHero
+      width: 225px
+      margin: 15px
+      border-radius: 10px 70px
+
+    .information
+      @include flex(flex, center, center, column)
+      padding-bottom: 40px
+
+@media screen and ( max-width: 455px )
+  .comic
+    .imgHero
+      width: 180px
+
+    .information
+      .listInfo
+        @include flex(flex, flex-start, flex-start, column)
+        width: 100%
+
+        .iconInfo
+          margin: 0

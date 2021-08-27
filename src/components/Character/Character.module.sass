@@ -65,6 +65,29 @@
 @media screen and ( max-width: 870px )
   .container
     width: 555px
+    margin: 0 auto -100px
+
+    .title
+      @include font(700, 35, 1.1em)
+
+    .profile
+      @include flex(flex, center, center, column)
+      height: auto
+
+      .imgHero
+        margin: 15px
+
+      .description
+        @include flex(flex, center, center, column)
+        padding: 20px 35px
+
+        .name
+          @include font(700, 32)
+          margin-bottom: 20px
+
+        .text
+          @include font(400, 18, 1.1em)
+
 
 @media screen and ( max-width: 610px )
   .container
@@ -73,4 +96,5 @@
 @media screen and ( max-width: 455px )
   .container
     width: 90%
+    margin: 0 auto -150px
 
