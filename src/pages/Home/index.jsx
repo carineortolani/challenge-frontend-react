@@ -13,17 +13,19 @@ import css from './Home.module.sass'
 const Home = () => {
   const [characters, setCharacters] = useState({})
   const [heroName, setHeroName] = useState('')
+  const heros = characters.results
+  console.log('heros', heros)
 
-  const searchHero = () => {
-    setCharacters({ active: true, outcomes: characters.filter(heros => heros.name.includes(heroName))})
-    console.log(heroName)
-  }
-console.log(characters)
   useEffect(() => {
     getCharacters()
-      .then(response => setCharacters(response))
-      .catch(error => console.error(error))
+    .then(response => setCharacters(response))
+    .catch(error => console.error(error))
   }, [])
+
+  const searchHero = () => {
+    const heroSearched = heros.filter(hero => hero.name.indexOf(heroName) !== -1 )
+    console.log(heroSearched)
+  }
 
   return (
     <>
@@ -48,13 +50,10 @@ console.log(characters)
         <Titles title="Characters" subtitle={`${characters.total || `#`} results`} />
 
         <div className={css.cardsList}>
-          {characters.results?.map((result, key) => (
+          {heros?.map((result, key) => (
             <Card
               key={key}
-              id={result.id}
-              name={result.name}
-              description={result.description}
-              thumbnail={result.thumbnail}
+              result={result}
             />
           ))}
         </div>
