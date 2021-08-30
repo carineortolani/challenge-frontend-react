@@ -4,6 +4,7 @@ import css from './Card.module.sass'
 
 const Card = ({ result }) => {
   const [favoriteHero, setFavoriteHero] = useState(JSON.parse(localStorage.getItem('@app-Marvel/YourTeam')) || [])
+  const [isFavorite, setIsFavorite] = useState(false)
 
   const { id, name, description, thumbnail } = result
 
@@ -12,6 +13,8 @@ const Card = ({ result }) => {
 
     if(favoriteHero.find(hero => hero.id === id)) {
       setFavoriteHero(favoriteHero.filter(hero => hero.id !== id))
+      setIsFavorite(false)
+
     } else {
         const newHero = {
           id: hero.id,
@@ -24,12 +27,15 @@ const Card = ({ result }) => {
         const newFavoriteHero = [...listHerosStorage, newHero]
 
         setFavoriteHero(newFavoriteHero)
+        setIsFavorite(true)
       }
   }
 
   useEffect(() => {
     localStorage.setItem('@app-Marvel/YourTeam', JSON.stringify(favoriteHero))
-  }, [favoriteHero])
+
+    if(favoriteHero.find(hero => hero.name === name)) setIsFavorite(true)
+  }, [favoriteHero, name])
 
   return (
     <Link to={`/profile/${id}`} className={css.card}>
@@ -40,7 +46,7 @@ const Card = ({ result }) => {
       />
       <button
         type="button"
-        className={css.btnFavorite}
+        className={isFavorite ? css.btnFavoriteActive : css.btnFavorite}
         title="Favorite Hero"
         onClick={e => toggleFavorite(e, result)}
       />
