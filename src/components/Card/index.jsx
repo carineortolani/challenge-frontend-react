@@ -10,16 +10,21 @@ const Card = ({ result }) => {
   const toggleFavorite = (e, hero) => {
     e.preventDefault()
 
-    const newHero = {
-      id: hero.id,
-      name: hero.name,
-      description: hero.description,
-      thumbnail: hero.thumbnail
-    }
+    if(favoriteHero.find(hero => hero.id === id)) {
+      setFavoriteHero(favoriteHero.filter(hero => hero.id !== id))
+    } else {
+        const newHero = {
+          id: hero.id,
+          name: hero.name,
+          description: hero.description,
+          thumbnail: hero.thumbnail
+        }
 
+        const listHerosStorage = JSON.parse(localStorage.getItem('@app-Marvel/YourTeam'))
+        const newFavoriteHero = [...listHerosStorage, newHero]
 
-    const newFavoriteHero = [...favoriteHero, newHero]
-    setFavoriteHero(newFavoriteHero)
+        setFavoriteHero(newFavoriteHero)
+      }
   }
 
   useEffect(() => {
