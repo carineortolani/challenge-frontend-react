@@ -9,7 +9,7 @@ const TeamFavorite = () => {
   const [teamFavorite, setTeamFavorite] = useState([])
 
   useEffect(() => { setTeamFavorite(JSON.parse(localStorage.getItem('@app-Marvel/YourTeam'))) }, [])
-  console.log(teamFavorite)
+
   return (
     <>
       <Banner>
