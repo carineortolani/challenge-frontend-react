@@ -13,6 +13,8 @@ import css from './Home.module.sass'
 const Home = () => {
   const [characters, setCharacters] = useState({})
   const [heroName, setHeroName] = useState('')
+  const [heroSearched, setHeroSearched] = useState({active: false, response: null})
+  const heros = heroSearched.active ? heroSearched.response : characters.results
 
   useEffect(() => {
     getCharacters()
@@ -26,9 +28,10 @@ const Home = () => {
   }
 
   const searchHero = () => {
-    const heroSearched = characters.results.filter(hero => hero.name.toLowerCase().indexOf(heroName.toLowerCase()) !== -1 )
-
-    setCharacters(heroSearched)
+    setHeroSearched({
+      active: true,
+      response: characters.results.filter(hero => hero.name.toLowerCase().includes(heroName.toLowerCase()))
+    })
   }
 
   return (
@@ -55,7 +58,7 @@ const Home = () => {
         <Titles title="Characters" subtitle={`${characters.total || `#`} results`} />
 
         <div className={css.cardsList}>
-          {characters.results?.map((result, key) => (
+          {heros?.map((result, key) => (
             <Card
               key={key}
               result={result}
