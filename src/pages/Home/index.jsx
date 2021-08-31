@@ -23,16 +23,28 @@ const Home = () => {
   }, [])
 
   const keyHandler = e => {
-    if (e.key === 'Enter')
+    if (e.key === 'Enter') {
       searchHero()
+    } else if (e.key === 'Escape') {
+      handleClear()
+    }
   }
 
   const searchHero = () => {
     setHeroSearched({
       active: true,
-      response: characters.results.filter(hero => hero.name.toLowerCase().includes(heroName.toLowerCase()))
+      response: heros.filter(hero => hero.name.toLowerCase().includes(heroName.toLowerCase()))
     })
   }
+
+  const handleClear = () => {
+    setHeroName('')
+    setHeroSearched({active: false, response: null})
+  }
+
+  useEffect(() => {
+    if(heroName.length < 1) handleClear()
+  }, [heroName])
 
   return (
     <>
@@ -46,6 +58,7 @@ const Home = () => {
               placeholder="Type in a character name"
               onChange={e => setHeroName(e.target.value)}
               onKeyUp={keyHandler}
+              value={heroName}
             />
             <button className={css.btnSearch} onClick={searchHero}>
               <img src={iconSearch} alt="Search" />
