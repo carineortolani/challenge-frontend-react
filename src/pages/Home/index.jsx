@@ -11,8 +11,9 @@ import iconSearch from '../../assets/icons/search.svg'
 import css from './Home.module.sass'
 
 const Home = () => {
-  const [characters, setCharacters] = useState({})
+  const [isLoading, setIsLoading] = useState(false)
   const [heroName, setHeroName] = useState('')
+  const [characters, setCharacters] = useState({})
   const [heroSearched, setHeroSearched] = useState({active: false, response: null})
   const heros = heroSearched.active ? heroSearched.response : characters.results
 
@@ -21,6 +22,16 @@ const Home = () => {
     .then(response => setCharacters(response))
     .catch(error => console.error(error))
   }, [])
+
+  useEffect(() => {
+    const intersectionObserver = new IntersectionObserver(() => {
+      console.log('Está dando certo')
+    })
+
+    intersectionObserver.observe()
+
+    return () => intersectionObserver.disconnect()
+  })
 
   const keyHandler = e => {
     if (e.key === 'Enter') {
@@ -45,6 +56,8 @@ const Home = () => {
   useEffect(() => {
     if(heroName.length < 1) handleClear()
   }, [heroName])
+
+  console.log(characters)
 
   return (
     <>
@@ -78,6 +91,7 @@ const Home = () => {
             />
           ))}
         </div>
+        {isLoading && <div className={css.Loading}>Loading...</div>}
       </div>
     </>
   )
