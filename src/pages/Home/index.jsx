@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 
 import { getCharacters } from '../../services/characters'
 
@@ -11,9 +11,7 @@ import iconSearch from '../../assets/icons/search.svg'
 import css from './Home.module.sass'
 
 const Home = () => {
-  const ref = useRef()
-
-  const [loading, setLoading] = useState(true)
+  const watcher = useRef()
   const [page, setPage] = useState(1)
 
   const [heroName, setHeroName] = useState('')
@@ -26,19 +24,6 @@ const Home = () => {
     getCharacters()
     .then(response => setCharacters(response))
     .catch(error => console.error(error))
-  }, [page])
-
-  useEffect(() => {
-    const intersectionObserver = new IntersectionObserver(entries => {
-      if(entries.some(entry => entry.isIntersecting)) {
-        console.log('Está dando certo')
-        setPage(currentValue => currentValue + 1)
-      }
-    })
-
-    intersectionObserver.observe(ref.current)
-
-    return () => intersectionObserver.disconnect()
   }, [])
 
   const keyHandler = e => {
@@ -64,6 +49,19 @@ const Home = () => {
   useEffect(() => {
     if(heroName.length < 1) handleClear()
   }, [heroName])
+
+  useEffect(() => {
+    const intersectionObserver = new IntersectionObserver(([entry]) => {
+      if(entry.isIntersecting) {
+
+        setPage(page + 1)
+      }
+    })
+
+    intersectionObserver.observe(watcher.current)
+
+    return () => intersectionObserver.disconnect()
+  }, [page])
 
   return (
     <>
@@ -97,7 +95,7 @@ const Home = () => {
             />
           ))}
         </div>
-        {loading && <div ref={ref} className={css.Loading}>Loading...</div>}
+        <div ref={watcher} />
       </div>
     </>
   )
