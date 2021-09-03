@@ -5,6 +5,7 @@ import { getCharacters } from '../../services/characters'
 import Banner from '../../layout/Banner'
 import Titles from '../../components/Titles'
 import Card from '../../components/Card'
+import CardSkeleton from '../../components/CardSkeleton'
 
 import iconSearch from '../../assets/icons/search.svg'
 
@@ -12,7 +13,8 @@ import css from './Home.module.sass'
 
 const Home = () => {
   const watcher = useRef()
-  const [page, setPage] = useState(1)
+  const [loading, setLoading] = useState(true)
+  // const [page, setPage] = useState(1)
 
   const [heroName, setHeroName] = useState('')
   const [heroSearched, setHeroSearched] = useState({active: false, response: null})
@@ -24,6 +26,7 @@ const Home = () => {
     getCharacters()
     .then(response => setCharacters(response))
     .catch(error => console.error(error))
+    .finally(() => setLoading(false))
   }, [])
 
   const keyHandler = e => {
@@ -50,19 +53,6 @@ const Home = () => {
     if(heroName.length < 1) handleClear()
   }, [heroName])
 
-  useEffect(() => {
-    const intersectionObserver = new IntersectionObserver(([entry]) => {
-      if(entry.isIntersecting) {
-
-        setPage(page + 1)
-      }
-    })
-
-    intersectionObserver.observe(watcher.current)
-
-    return () => intersectionObserver.disconnect()
-  }, [page])
-
   return (
     <>
       <Banner>
@@ -87,14 +77,26 @@ const Home = () => {
       <div className={css.container}>
         <Titles title="Characters" subtitle={`${characters.total || `#`} results`} />
 
-        <div className={css.cardsList}>
-          {heros?.map((result, key) => (
-            <Card
-              key={key}
-              result={result}
-            />
-          ))}
-        </div>
+        {loading &&
+          <div className={css.cardsList}>
+            {Array.from({length: 8}).map((_, key) => (
+              <CardSkeleton key={key}/>
+            ))}
+          </div>
+        }
+
+        {!loading &&
+
+          <div className={css.cardsList}>
+            {heros?.map((result, key) => (
+              <Card
+                key={key}
+                result={result}
+              />
+            ))}
+          </div>
+
+        }
         <div ref={watcher} />
       </div>
     </>
