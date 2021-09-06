@@ -53,10 +53,21 @@
     @include flex(flex, space-between, center, row, wrap)
     width: 100%
 
-  .Loading
-    background-color: #aad
-    padding: 30px
-    width: 50%
+    .cardSkeleton
+      width: 242px
+      height: 340px
+      margin: 15px 10px 25px 0
+
+      background: linear-gradient( to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 80%), lightgray
+      background-repeat: repeat-y
+      background-size: 150px 300px
+      background-position: 0 0
+      animation: shine 1s infinite
+      border-radius: 10px 30px
+
+      @keyframes shine
+        to
+          background-position: 100% 0, 0 0
 
 @media screen and ( min-width: 1900px )
   .container

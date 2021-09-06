@@ -8,7 +8,6 @@ import Banner from '../../layout/Banner'
 import Character from '../../components/Character'
 import Titles from '../../components/Titles'
 import Comic from '../../components/Comic'
-import ComicSkeleton from '../../components/ComicSkeleton'
 
 import css from './Profile.module.sass'
 
@@ -44,15 +43,16 @@ const Profile = () => {
       <div className={css.container}>
         <Titles title="Comics" subtitle={`${comics.total || `#`} results`} />
 
-        {loading &&
+        {loading ?
+
           <div className={css.comicsList}>
             {Array.from({length: 5}).map((_, key) => (
-              <ComicSkeleton key={key}/>
+              <span className={css.comicSkeleton} key={key}/>
             ))}
           </div>
-        }
 
-        {!loading &&
+        :
+
           <div className={css.comicsList}>
             {comics.results?.map(result => (
               <Comic

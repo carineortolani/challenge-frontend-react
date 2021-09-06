@@ -5,7 +5,6 @@ import { getCharacters } from '../../services/characters'
 import Banner from '../../layout/Banner'
 import Titles from '../../components/Titles'
 import Card from '../../components/Card'
-import CardSkeleton from '../../components/CardSkeleton'
 
 import iconSearch from '../../assets/icons/search.svg'
 
@@ -77,15 +76,15 @@ const Home = () => {
       <div className={css.container}>
         <Titles title="Characters" subtitle={`${characters.total || `#`} results`} />
 
-        {loading &&
+        {loading ?
+
           <div className={css.cardsList}>
             {Array.from({length: 8}).map((_, key) => (
-              <CardSkeleton key={key}/>
+              <span className={css.cardSkeleton} key={key}/>
             ))}
           </div>
-        }
 
-        {!loading &&
+        :
 
           <div className={css.cardsList}>
             {heros?.map((result, key) => (
