@@ -18,8 +18,8 @@ const Home = () => {
   const [heroName, setHeroName] = useState('')
   const [heroSearched, setHeroSearched] = useState({active: false, response: null})
 
-  const [characters, setCharacters] = useState({})
-  const heros = heroSearched.active ? heroSearched.response : characters.results
+  const [characters, setCharacters] = useState()
+  const heros = heroSearched.active ? heroSearched.response : characters?.results
 
   useEffect(() => {
     getCharacters()
@@ -74,7 +74,7 @@ const Home = () => {
       </Banner>
 
       <div className={css.container}>
-        <Titles title="Characters" subtitle={`${characters.total || `#`} results`} />
+        <Titles title="Characters" subtitle={`${characters?.total || `#`} results`} />
 
         {loading ?
 

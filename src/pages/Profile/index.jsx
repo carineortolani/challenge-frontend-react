@@ -13,7 +13,7 @@ import css from './Profile.module.sass'
 
 const Profile = () => {
   const [profile, setProfile] = useState({})
-  const [comics, setComics] = useState({})
+  const [comics, setComics] = useState()
   const [loading, setLoading] = useState(true)
   let { id } = useParams()
 
@@ -41,7 +41,7 @@ const Profile = () => {
         ))}
       </Banner>
       <div className={css.container}>
-        <Titles title="Comics" subtitle={`${comics.total || `#`} results`} />
+        <Titles title="Comics" subtitle={`${comics?.total || `#`} results`} />
 
         {loading ?
 
