@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
 import { getCharacters } from '../../services/characters'
 
@@ -11,15 +12,14 @@ import iconSearch from '../../assets/icons/search.svg'
 import css from './Home.module.sass'
 
 const Home = () => {
-  const watcher = useRef()
   const [loading, setLoading] = useState(true)
-  // const [page, setPage] = useState(1)
+  const [page, setPage] = useState(1)
 
   const [heroName, setHeroName] = useState('')
   const [heroSearched, setHeroSearched] = useState({active: false, response: null})
 
-  const [characters, setCharacters] = useState()
-  const heros = heroSearched.active ? heroSearched.response : characters?.results
+  const [characters, setCharacters] = useState([])
+  const heros = heroSearched.active ? heroSearched.response : characters?.results || []
 
   useEffect(() => {
     getCharacters()
@@ -27,6 +27,10 @@ const Home = () => {
     .catch(error => console.error(error))
     .finally(() => setLoading(false))
   }, [])
+
+  const fetchMore = () => {
+    setPage(page + 1)
+  }
 
   const keyHandler = e => {
     if (e.key === 'Enter') {
@@ -96,7 +100,14 @@ const Home = () => {
           </div>
 
         }
-        <div ref={watcher} />
+
+        <InfiniteScroll
+          dataLength={heros.length}
+          next={fetchMore}
+          hasMore={heros.length < characters.total ? true : false}
+          loader={<p>Loading...</p>}
+          endMessage={<p>End</p>}
+        />
       </div>
     </>
   )
