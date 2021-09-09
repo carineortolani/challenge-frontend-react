@@ -29,7 +29,8 @@ const Home = () => {
   }, [])
 
   const fetchMore = () => {
-    setPage(page + 1)
+    let offset = characters.offset + 20
+    console.log(offset)
   }
 
   const keyHandler = e => {
@@ -55,7 +56,7 @@ const Home = () => {
   useEffect(() => {
     if(heroName.length < 1) handleClear()
   }, [heroName])
-
+ console.log('characters', characters)
   return (
     <>
       <Banner>
@@ -90,24 +91,25 @@ const Home = () => {
 
         :
 
-          <div className={css.cardsList}>
-            {heros?.map((result, key) => (
-              <Card
-                key={key}
-                result={result}
-              />
-            ))}
-          </div>
+          <InfiniteScroll
+            className={css.infiniteScroll}
+            dataLength={heros.length}
+            next={fetchMore}
+            hasMore={heros.length < characters.total ? true : false}
+            loader={<span className={css.loader} />}
+            endMessage={<p>End</p>}
+          >
+            <div className={css.cardsList}>
+              {heros?.map((result, key) => (
+                <Card
+                  key={key}
+                  result={result}
+                />
+              ))}
+            </div>
+          </InfiniteScroll>
 
         }
-
-        <InfiniteScroll
-          dataLength={heros.length}
-          next={fetchMore}
-          hasMore={heros.length < characters.total ? true : false}
-          loader={<p>Loading...</p>}
-          endMessage={<p>End</p>}
-        />
       </div>
     </>
   )

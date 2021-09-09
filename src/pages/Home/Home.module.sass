@@ -69,52 +69,55 @@
         to
           background-position: 100% 0, 0 0
 
-  .loader
-    width: 48px
-    height: 48px
-    margin: 20px
-    border-radius: 50%
-    display: inline-block
-    position: relative
-    border: 2px solid
-    border-color: $black $black transparent transparent
-    animation: rotation 1s linear infinite
+  .infiniteScroll
+    @include flex(flex, center, center, column)
 
-    &:after , &:before
-      content: ''
-      position: absolute
-      left: 0
-      right: 0
-      top: 0
-      bottom: 0
-      width:  48px - 8px
-      height:  48px - 8px
-      margin: auto
-      border: 2px solid
-      border-color: transparent transparent $red $red
+    .loader
+      width: 48px
+      height: 48px
+      margin: 20px
       border-radius: 50%
-      box-sizing: border-box
-      animation: rotationBack 0.5s linear infinite
-      transform-origin: center center
+      display: inline-block
+      position: relative
+      border: 2px solid
+      border-color: $black $black transparent transparent
+      animation: rotation 1s linear infinite
 
-    &:before
-      width:  48px - 16px
-      height:  48px - 16px
-      border-color:$black $black transparent transparent
-      box-sizing: border-box
-      animation: rotation 1.5s linear infinite
+      &:after , &:before
+        content: ''
+        position: absolute
+        left: 0
+        right: 0
+        top: 0
+        bottom: 0
+        width:  48px - 8px
+        height:  48px - 8px
+        margin: auto
+        border: 2px solid
+        border-color: transparent transparent $red $red
+        border-radius: 50%
+        box-sizing: border-box
+        animation: rotationBack 0.5s linear infinite
+        transform-origin: center center
 
-    @keyframes rotation
-      0%
-        transform: rotate(0deg)
-      100%
-        transform: rotate(360deg)
+      &:before
+        width:  48px - 16px
+        height:  48px - 16px
+        border-color:$black $black transparent transparent
+        box-sizing: border-box
+        animation: rotation 1.5s linear infinite
 
-    @keyframes rotationBack
-      0%
-        transform: rotate(0deg)
-      100%
-        transform: rotate(-360deg)
+      @keyframes rotation
+        0%
+          transform: rotate(0deg)
+        100%
+          transform: rotate(360deg)
+
+      @keyframes rotationBack
+        0%
+          transform: rotate(0deg)
+        100%
+          transform: rotate(-360deg)
 
 @media screen and ( min-width: 1900px )
   .container
