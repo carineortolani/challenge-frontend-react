@@ -47,7 +47,7 @@ const Card = ({ result }) => {
       <button
         type="button"
         className={isFavorite ? css.btnFavoriteActive : css.btnFavorite}
-        title="Favorite Hero"
+        title="Mark Hero"
         onClick={e => toggleFavorite(e, result)}
       />
       <h4 className={css.hero} title={name}>{name}</h4>
