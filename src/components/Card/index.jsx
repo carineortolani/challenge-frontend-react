@@ -11,10 +11,11 @@ const Card = ({ result }) => {
   const toggleFavorite = (e, hero) => {
     e.preventDefault()
 
-    if(favoriteHero.find(hero => hero.id === id)) {
-      setFavoriteHero(favoriteHero.filter(hero => hero.id !== id))
-      setIsFavorite(false)
+    const listHerosStorage = JSON.parse(localStorage.getItem('@app-Marvel/YourTeam'))
 
+    if(favoriteHero.find(hero => hero.id === id)) {
+      setFavoriteHero(listHerosStorage.filter(hero => hero.id !== id))
+      setIsFavorite(false)
     } else {
         const newHero = {
           id: hero.id,
@@ -23,7 +24,6 @@ const Card = ({ result }) => {
           thumbnail: hero.thumbnail
         }
 
-        const listHerosStorage = JSON.parse(localStorage.getItem('@app-Marvel/YourTeam'))
         const newFavoriteHero = [...listHerosStorage, newHero]
 
         setFavoriteHero(newFavoriteHero)
@@ -34,8 +34,8 @@ const Card = ({ result }) => {
   useEffect(() => {
     localStorage.setItem('@app-Marvel/YourTeam', JSON.stringify(favoriteHero))
 
-    if(favoriteHero.find(hero => hero.name === name)) setIsFavorite(true)
-  }, [favoriteHero, name])
+    if(favoriteHero.find(hero => hero.id === id)) setIsFavorite(true)
+  }, [favoriteHero, id])
 
   return (
     <Link to={`/profile/${id}`} className={css.card}>
