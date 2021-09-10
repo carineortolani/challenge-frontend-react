@@ -46,17 +46,18 @@
   @include flex(flex, center, center, column)
 
   width: 1100px
+  height: auto
   padding: 0 15px
   margin: auto
 
   .cardsList
-    @include flex(flex, space-between, center, row, wrap)
+    @include flex(flex, flex-start, center, row, wrap)
     width: 100%
 
     .cardSkeleton
       width: 242px
       height: 340px
-      margin: 15px 10px 25px 0
+      margin: 15px 10px 25px 15px
 
       background: linear-gradient( to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 80%), lightgray
       background-repeat: repeat-y
@@ -73,12 +74,14 @@
     @include flex(flex, center, center, column)
 
     .loader
+      position: relative
       width: 48px
       height: 48px
       margin: 20px
-      border-radius: 50%
+
       display: inline-block
-      position: relative
+
+      border-radius: 50%
       border: 2px solid
       border-color: $black $black transparent transparent
       animation: rotation 1s linear infinite
@@ -93,6 +96,7 @@
         width:  48px - 8px
         height:  48px - 8px
         margin: auto
+
         border: 2px solid
         border-color: transparent transparent $red $red
         border-radius: 50%
@@ -103,6 +107,7 @@
       &:before
         width:  48px - 16px
         height:  48px - 16px
+
         border-color:$black $black transparent transparent
         box-sizing: border-box
         animation: rotation 1.5s linear infinite
@@ -120,16 +125,19 @@
           transform: rotate(-360deg)
 
 @media screen and ( min-width: 1900px )
-  .container
+  .container,
+  .infiniteScroll
     width: 1375px
 
 @media screen and ( max-width: 1130px )
-  .container
+  .container,
+  .infiniteScroll
     width: 825px
 
 @media screen and ( max-width: 870px )
   .container,
-  .containerSearch
+  .containerSearch,
+  .infiniteScroll
     width: 555px
 
     .title
@@ -141,7 +149,8 @@
       height: 57px
 
 @media screen and ( max-width: 610px )
-  .container
+  .container,
+  .infiniteScroll
     width: 455px
 
     .cardsList
@@ -165,5 +174,6 @@
 
 @media screen and ( max-width: 455px )
   .container,
-  .containerSearch
+  .containerSearch,
+  .infiniteScroll
     width: 90%
