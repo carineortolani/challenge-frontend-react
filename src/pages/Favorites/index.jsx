@@ -19,14 +19,27 @@ const TeamFavorite = () => {
         </div>
       </Banner>
 
-      <div className={css.listFavorites}>
-        {teamFavorite.map((result, key) => (
-          <Card
-            key={key}
-            result={result}
-          />
-        ))}
-      </div>
+      {teamFavorite.length < 1 ?
+
+        <div className={css.listFavorites}>
+          <p className={css.message}>Mark a hero on the home page to start strike team choice !</p>
+          {Array.from({length: 4}).map((_, key) => (
+            <span className={css.cardSkeleton} key={key}/>
+          ))}
+        </div>
+
+      :
+
+        <div className={css.listFavorites}>
+          {teamFavorite.map((result, key) => (
+            <Card
+              key={key}
+              result={result}
+            />
+          ))}
+        </div>
+
+      }
     </>
   )
 }
