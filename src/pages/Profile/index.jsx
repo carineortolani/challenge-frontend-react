@@ -12,7 +12,7 @@ import Comic from '../../components/Comic'
 import css from './Profile.module.sass'
 
 const Profile = () => {
-  const [profile, setProfile] = useState({})
+  const [profile, setProfile] = useState([])
   const [comics, setComics] = useState()
   const [loading, setLoading] = useState(true)
   let { id } = useParams()

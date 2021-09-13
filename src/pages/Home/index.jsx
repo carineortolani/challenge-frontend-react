@@ -109,7 +109,7 @@ const Home = () => {
           dataLength={heros.length}
           next={fetchMore}
           hasMore={heros.length < characters.total ? true : false}
-          loader={heros.length === heroSearched.response.length ? <span/> : <span className={css.loader} />}
+          loader={<span className={`${heros.length === heroSearched.response.length ?  css.noLoader : css.loader}`} />}
           endMessage={<p>End</p>}
         >
           <div className={css.cardsList}>
@@ -123,7 +123,7 @@ const Home = () => {
         </InfiniteScroll>
 
         }
-        {checkHaveHero() ?  <span/> : <p className={css.warning}>Hero not found :(</p> }
+        <p className={`${checkHaveHero() ? css.withoutWarning : css.warning}`}>Hero not found :(</p>
         <button className={css.btnTop} onClick={handleReturnTop}/>
       </div>
     </>
