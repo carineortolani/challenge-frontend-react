@@ -13,10 +13,9 @@ import css from './Home.module.sass'
 
 const Home = () => {
   const [loading, setLoading] = useState(true)
-  const [page, setPage] = useState(1)
 
   const [heroName, setHeroName] = useState('')
-  const [heroSearched, setHeroSearched] = useState({active: false, response: null})
+  const [heroSearched, setHeroSearched] = useState({active: false, response: []})
 
   const [characters, setCharacters] = useState([])
   const heros = heroSearched.active ? heroSearched.response : characters?.results || []
@@ -51,10 +50,21 @@ const Home = () => {
     })
   }
 
+  const checkHaveHero= () => {
+
+    if(heroSearched.active === true && heroSearched.response.length === 0) {
+      return false
+    }
+
+    return true
+  }
+
   const handleClear = () => {
     setHeroName('')
-    setHeroSearched({active: false, response: null})
+    setHeroSearched({active: false, response: []})
   }
+
+  const handleReturnTop = () => window.scrollTo({ top: 0, behavior: 'smooth'})
 
   useEffect(() => {
     if(heroName.length < 1) handleClear()
@@ -82,7 +92,7 @@ const Home = () => {
       </Banner>
 
       <div className={css.container}>
-        <Titles title="Characters" subtitle={`${characters?.total || `#`} results`} />
+        <Titles title="Characters" subtitle={`${heros.length || `#`} results`} />
 
         {loading ?
 
@@ -99,7 +109,7 @@ const Home = () => {
           dataLength={heros.length}
           next={fetchMore}
           hasMore={heros.length < characters.total ? true : false}
-          loader={<span className={css.loader} />}
+          loader={heros.length === heroSearched.response.length ? <span/> : <span className={css.loader} />}
           endMessage={<p>End</p>}
         >
           <div className={css.cardsList}>
@@ -113,6 +123,8 @@ const Home = () => {
         </InfiniteScroll>
 
         }
+        {checkHaveHero() ?  <span/> : <p className={css.warning}>Hero not found :(</p> }
+        <button className={css.btnTop} onClick={handleReturnTop}/>
       </div>
     </>
   )

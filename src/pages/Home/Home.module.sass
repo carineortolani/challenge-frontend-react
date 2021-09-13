@@ -50,6 +50,40 @@
   padding: 0 15px
   margin: auto
 
+  .btnTop
+    position: fixed
+    bottom: 15px
+    right: 10px
+
+    padding: 20px
+    border: none
+    border-radius: 50%
+    background-color: $red
+    background-position: center
+    background-size: 26px
+    background-repeat: no-repeat
+    background-image: url('../../assets/icons/iconTop.svg')
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%)
+
+    cursor: pointer
+
+    .iconTop
+      width: 25px
+
+  .warning
+    @include flex(flex, center, center)
+    @include font(400, 25, 1.1)
+
+    width: 70%
+    padding: 50px
+    margin: 20px auto 140px
+
+    color: $black
+    border: 1px solid
+    border-color: $red
+    border-radius: 10px 30px
+    background-color: #f8a2a04f
+
   .cardsList
     @include flex(flex, flex-start, center, row, wrap)
     width: 100%
