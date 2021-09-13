@@ -28,12 +28,19 @@ const Home = () => {
   }, [])
 
   const fetchMore = () => {
-    let limit = characters.limit
-    let count = characters.count
-    let offset = characters.offset
-
-    console.log(limit, count, offset)
+    getCharacters()
+    .then(response => setCharacters([
+      ...characters,
+      response.results,
+      characters.limit + 20,
+      characters.count + 20,
+      characters.offset + 20
+    ]))
+    .catch(error => console.error(error))
+    .finally(() => setLoading(false))
   }
+
+  console.log('characters', characters)
 
   const keyHandler = e => {
     if (e.key === 'Enter') {
