@@ -17,8 +17,8 @@ const Home = () => {
   const [heroName, setHeroName] = useState('')
   const [heroSearched, setHeroSearched] = useState({active: false, response: []})
 
-  const [characters, setCharacters] = useState([])
-  const heros = heroSearched.active ? heroSearched.response : characters?.results || []
+  const [characters, setCharacters] = useState()
+  const heroes = heroSearched.active ? heroSearched.response : characters?.results || []
 
   useEffect(() => {
     getCharacters()
@@ -30,17 +30,12 @@ const Home = () => {
   const fetchMore = () => {
     getCharacters()
     .then(response => setCharacters([
-      ...characters,
-      response.results,
-      characters.limit + 20,
-      characters.count + 20,
-      characters.offset + 20
+      ...characters.results,
+      ...response.results
     ]))
     .catch(error => console.error(error))
     .finally(() => setLoading(false))
   }
-
-  console.log('characters', characters)
 
   const keyHandler = e => {
     if (e.key === 'Enter') {
@@ -53,7 +48,7 @@ const Home = () => {
   const searchHero = () => {
     setHeroSearched({
       active: true,
-      response: heros.filter(hero => hero.name.toLowerCase().includes(heroName.toLowerCase()))
+      response: characters.results.filter(hero => hero.name.toLowerCase().includes(heroName.toLowerCase()))
     })
   }
 
@@ -99,7 +94,7 @@ const Home = () => {
       </Banner>
 
       <div className={css.container}>
-        <Titles title="Characters" subtitle={`${heros.length || `#`} results`} />
+        <Titles title="Characters" subtitle={`${heroes.length || `#`} results`} />
 
         {loading ?
 
@@ -113,14 +108,14 @@ const Home = () => {
 
         <InfiniteScroll
           className={css.infiniteScroll}
-          dataLength={heros.length}
+          dataLength={heroes.length}
           next={fetchMore}
-          hasMore={heros.length < characters.total ? true : false}
-          loader={<span className={`${heros.length === heroSearched.response.length ?  css.noLoader : css.loader}`} />}
-          endMessage={<p>End</p>}
+          hasMore={heroes.length < characters.total ? true : false}
+          loader={<span className={`${heroes.length === heroSearched.response.length ?  css.noLoader : css.loader}`} />}
+          endMessage={<p className={css.end}>End :)</p>}
         >
           <div className={css.cardsList}>
-            {heros?.map((result, key) => (
+            {heroes?.map((result, key) => (
               <Card
                 key={key}
                 result={result}
