@@ -1,7 +1,7 @@
 import { api } from './api'
 
-export const getCharacters = async () => {
-  const response = await api.get('/characters')
+export const getCharacters = async (offset) => {
+  const response = await api.get(`/characters?offset=${offset}`)
 
   const results = response.data.data.results.map(result => ({
     id: result.id,

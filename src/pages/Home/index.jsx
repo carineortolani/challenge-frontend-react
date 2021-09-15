@@ -13,26 +13,32 @@ import css from './Home.module.sass'
 
 const Home = () => {
   const [loading, setLoading] = useState(true)
+  const [offset, setOffset] = useState()
+  const [total, setTotal] = useState()
 
   const [heroName, setHeroName] = useState('')
   const [heroSearched, setHeroSearched] = useState({active: false, response: []})
 
   const [characters, setCharacters] = useState()
-  const heroes = heroSearched.active ? heroSearched.response : characters?.results || []
+  const heroes = heroSearched.active ? heroSearched.response : characters || []
 
   useEffect(() => {
     getCharacters()
-    .then(response => setCharacters(response))
+    .then(response => {
+      setTotal(response.total)
+      setCharacters(response.results)
+      setOffset(response.offset + response.limit)
+    })
     .catch(error => console.error(error))
     .finally(() => setLoading(false))
   }, [])
 
   const fetchMore = () => {
-    getCharacters()
-    .then(response => setCharacters([
-      ...characters.results,
-      ...response.results
-    ]))
+    getCharacters(offset)
+    .then(response => {
+      setCharacters([...characters, ...response.results])
+      setOffset(response.offset + response.limit)
+    })
     .catch(error => console.error(error))
     .finally(() => setLoading(false))
   }
@@ -48,7 +54,7 @@ const Home = () => {
   const searchHero = () => {
     setHeroSearched({
       active: true,
-      response: characters.results.filter(hero => hero.name.toLowerCase().includes(heroName.toLowerCase()))
+      response: characters.filter(hero => hero.name.toLowerCase().includes(heroName.toLowerCase()))
     })
   }
 
@@ -110,7 +116,7 @@ const Home = () => {
           className={css.infiniteScroll}
           dataLength={heroes.length}
           next={fetchMore}
-          hasMore={heroes.length < characters.total ? true : false}
+          hasMore={heroes.length < total ? true : false}
           loader={<span className={`${heroes.length === heroSearched.response.length ?  css.noLoader : css.loader}`} />}
           endMessage={<p className={css.end}>End :)</p>}
         >
