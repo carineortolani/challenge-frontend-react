@@ -8,6 +8,23 @@
   padding: 55px 15px 0 15px
   margin: auto
 
+  .infiniteScroll
+    @include flex(flex, center, center, column)
+
+  .end
+    @include font(400, 25, 1.1)
+    @include flex(flex, center, center)
+
+    width: 100%
+    padding: 50px
+    margin: 20px auto 140px
+
+    color: #fbb6bd
+    border: 1px solid
+    border-color: #fbb6bd
+    border-radius: 10px 30px
+    background-color: #ffcdd234
+
   .comicsList
     @include flex(flex, center, center, column)
     width: 100%
@@ -30,7 +47,56 @@
       @keyframes shine
         to
           background-position: 100% 0, 0 0
+  .loader
+    position: relative
+    width: 48px
+    height: 48px
+    margin: 20px
 
+    display: inline-block
+
+    border-radius: 50%
+    border: 2px solid
+    border-color: $black $black transparent transparent
+    animation: rotation 1s linear infinite
+
+    &:after , &:before
+      content: ''
+      position: absolute
+      left: 0
+      right: 0
+      top: 0
+      bottom: 0
+      width:  48px - 8px
+      height:  48px - 8px
+      margin: auto
+
+      border: 2px solid
+      border-color: transparent transparent $red $red
+      border-radius: 50%
+      box-sizing: border-box
+      animation: rotationBack 0.5s linear infinite
+      transform-origin: center center
+
+    &:before
+      width:  48px - 16px
+      height:  48px - 16px
+
+      border-color:$black $black transparent transparent
+      box-sizing: border-box
+      animation: rotation 1.5s linear infinite
+
+    @keyframes rotation
+      0%
+        transform: rotate(0deg)
+      100%
+        transform: rotate(360deg)
+
+    @keyframes rotationBack
+      0%
+        transform: rotate(0deg)
+      100%
+        transform: rotate(-360deg)
 
 @media screen and ( min-width: 1900px )
   .container

@@ -1,7 +1,7 @@
 import { api } from './api'
 
-export const getComics = async (characterId) => {
-  const response = await api.get(`/characters/${characterId}/comics`)
+export const getComics = async (characterId, offset) => {
+  const response = await api.get(`/characters/${characterId}/comics?offset=${offset}`)
 
   const results = response.data.data.results.map(result => ({
     id: result.id,
