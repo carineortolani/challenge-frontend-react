@@ -1,0 +1,100 @@
+@import '../../shared/sass/_variables'
+@import '../../shared/sass/_mixins'
+
+.container
+  @include flex(flex, flex-end, flex-start, column)
+
+  position: relative
+
+  width: 1100px
+  padding: 0 15px
+  margin: 0 auto -50px
+
+  .title
+    @include font(700, 40, 1.1em)
+
+    margin-left: 35px
+    max-width: 600px
+    color: $white
+
+  .profile
+    @include flex(flex, center, center)
+
+    width: 100%
+    height: 256px
+    margin-top: 20px
+
+    background-color: $white
+    border-radius: 10px 50px
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+
+    .imgHero
+      height: 170px
+      width: 180px
+      margin-left: 95px
+      border-radius: 100%
+
+    .description
+      @include flex(flex, center, flex-start, column)
+
+      height: 100%
+      width: 100%
+      padding: 35px
+
+      .name
+        @include font(700, 37)
+        margin-bottom: 29px
+
+      .text
+        @include font(400, 20, 1.1em)
+        max-width: 600px
+
+@media screen and ( min-width: 1900px )
+  .container
+    width: 1375px
+
+    .profile
+      .description
+        .text
+          max-width: 800px
+
+@media screen and ( max-width: 1130px )
+  .container
+    width: 825px
+
+@media screen and ( max-width: 870px )
+  .container
+    width: 555px
+    margin: 0 auto -100px
+
+    .title
+      @include font(700, 35, 1.1em)
+
+    .profile
+      @include flex(flex, center, center, column)
+      height: auto
+
+      .imgHero
+        margin: 15px
+
+      .description
+        @include flex(flex, center, center, column)
+        padding: 20px 35px
+
+        .name
+          @include font(700, 32)
+          margin-bottom: 20px
+
+        .text
+          @include font(400, 18, 1.1em)
+
+
+@media screen and ( max-width: 610px )
+  .container
+    width: 455px
+
+@media screen and ( max-width: 455px )
+  .container
+    width: 90%
+    margin: 0 auto -150px
+

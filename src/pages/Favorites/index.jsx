@@ -1,0 +1,47 @@
+import React, { useState, useEffect } from 'react'
+import css from './Favorites.module.sass'
+import Banner from '../../layout/Banner'
+
+import Card from '../../components/Card'
+import Return from '../../components/Return'
+
+const TeamFavorite = () => {
+  const [teamFavorite, setTeamFavorite] = useState([])
+
+  useEffect(() => { setTeamFavorite(JSON.parse(localStorage.getItem('@app-Marvel/YourTeam'))) }, [])
+
+  return (
+    <>
+      <Banner>
+        <div className={css.container}>
+          <Return />
+          <h1 className={css.title}>Here is your own strike team choice</h1>
+        </div>
+      </Banner>
+
+      {teamFavorite.length < 1 ?
+
+        <div className={css.listFavorites}>
+          <p className={css.message}>Mark a hero on the home page to start strike team choice !</p>
+          {Array.from({length: 4}).map((_, key) => (
+            <span className={css.cardSkeleton} key={key}/>
+          ))}
+        </div>
+
+      :
+
+        <div className={css.listFavorites}>
+          {teamFavorite.map((result, key) => (
+            <Card
+              key={key}
+              result={result}
+            />
+          ))}
+        </div>
+
+      }
+    </>
+  )
+}
+
+export default TeamFavorite

@@ -1,0 +1,27 @@
+@import '../../shared/sass/_variables'
+@import '../../shared/sass/_mixins'
+
+.titles
+  @include flex(flex, space-between, center, row, wrap)
+
+  width: 100%
+  height: 122px
+
+  .title
+    @include font(700, 39)
+    margin: 0 15px
+
+  .subtitle
+    @include font(700, 22)
+    margin-right: 50px
+
+@media screen and ( max-width: 435px )
+  .title
+    @include font(700, 30)
+
+  .subtitle
+    @include font(700, 18)
+
+@media screen and ( max-width: 455px )
+  .titles
+    @include flex(flex, center, center, row, wrap)

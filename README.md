@@ -1,55 +1,49 @@
-# Desafio Frontend
-Como parte do processo seletivo da Live On, utilizamos esse desafio técnico para avaliar seus conhecimento técnicos e habilidades com o requisito da vaga, lembrando apenas, que claro, o teste deve ser feito por você e apenas você, no conforto de seu castelo!
+# Challenge-Frontend-Marvel
 
-## Descrição do desafio
+<div align="center">
+  <img src="./src/assets/icons/iconLogo.svg">
+  <h1>Marvel App</h1>
+</div>
 
-O desafio consiste em criar uma aplicação client-side escalável, utilizando a biblioteca React, que faça consultas e consuma uma API externa, nesse cenário, sendo da Marvel, seguindo as diretrizes mencionadas logo abaixo e o protótipo desenvolvido especialmente para esse desafio.
+Desafio realizado com intuito de testar e avaliar conhecimentos técnicos e habilidades desenvolvidas durante os estudos, seguindo os requisitos da [@LiveOnSolutions](https://github.com/LiveOnSolutions), no repositório [challenge-frontend-react](https://github.com/LiveOnSolutions/challenge-frontend-react)
 
-[Link para o protótipo e assets no Figma](https://figma.com/file/b7EzpqbYSCIjj2OFHPGCqY/Live-On-Challenge-Frontend-React)
+#
 
-## API
+#### :rocket: Finalidades do projeto:
+- [X] Manter o layout de acordo com o protótipo - [Protótipo](https://www.figma.com/file/b7EzpqbYSCIjj2OFHPGCqY/Live-On---Challenge-Frontend-React?node-id=0%3A1)
+- [X] Listar e paginar os heróis disponíveis
+- [X] Adicionar ou remover heróis da página de favoritos
+- [X] Disponibilizar o perfil dos heróis
+- [X] Manter a responsividade
 
-```https://developer.marvel.com```
+#### :hammer_and_wrench: Tecnologias utilizadas:
+- [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+- [JavaScript](https://www.javascript.com/)
+- [ReactJS](https://pt-br.reactjs.org/)
+- [SASS](https://sass-lang.com/)
+- [Marvel API](https://developer.marvel.com)
 
-## Diretrizes
+#### :clipboard: Executando o projeto
 
-A aplicação deve contemplar as seguintes diretrizes:
+```bash
+# Clone este repositório
+$ git clone <git@github.com:carineortolani/challenge-frontend-react.git>
 
-### Home
+# Acesse a pasta do projeto no terminal/cmd
+$ cd challenge-frontend-react
 
-- Na **Home**, assim que o usuário acessá-la, **devemos trazer a lista de heróis da Marvel**, de acordo com a listagem da API, que provavelmente estarão em ordem alfabética.
-  - O card de cada herói deve possuir sua **imagem**, seu **nome**, uma **breve descrição** e um **botão para adicioná-lo ao nosso time** (também conhecido como **Favoritar** em outras línguas 😂).
-- Quando pensamos em fazer uma **aplicação performática** e na **quantidade de personagens que a Marvel possui**, **é de alta importância que a lista de heróis exibidas seja paginada**, seja através de um meio tradicional (com números e botões de "Próximo" e "Anterior") ou carregamento infinito baseado na rolagem da página pelo usuário.
-- E claro, é de **extrema importância** que exista uma **barra de pesquisa para podermos buscar nossos heróis favoritos** no meio de tanta gente!
+# Crie um arquivo .env seguindo como modelo o arquivo .env.example e preencha com suas configurações locais
+$ copy .env.example .env
 
-### Perfil do Herói
+# Instalar as dependências
+$ yarn install
 
-- No **Perfil do Herói**, temos um card de apresentação com a **imagem do personagem**, seu **nome** e uma **breve descrição**.
-- Uma seção com **5 quadrinhos** do herói, sendo que cada um deve conter sua **imagem**, **nome**, **data de lançamento**, **quantidade de páginas**, o **preço praticado**, e uma **breve descrição**, **limitada em 200 caractéres** (visto que as descrições oscilam demais).
+# Iniciando o servidor
+$ yarn start
 
-### Favoritos
+```
 
-- Nos **Favoritos**, a lista de cards dos herói que foram selecionados para a equipe deve ser exibido, assim como pode ser visto na **Home**, com a diferença de que o botão que servia para juntá-lo ao time, agora o remove.
-- Novamente, pensando em uma aplicação performática, é interessante que exista uma paginação, seja ela tradicional (como explicado acima), ou de carregamento infinito.
+---
 
-## Diferenciais
-
-- README.MD organizado;
-- Responsividade da aplicação;
-- [TypeScript](https://typescriptlang.org);
-- Pré-processadores CSS [(Sass ou SCSS)](https://sass-lang.com);
-- Utilização da [contextAPI](https://reactjs.org/docs/context.html) ou [Redux](https://redux.js.org);
-
-## Como entregar o desafio?
-
-1. Faça um fork desse projeto em sua conta pessoal no GitHub;
-2. Desenvolva o desafio Frontend da Live On;
-3. Adicione como membro do repositório um dos seguintes usuários do GitHub ([@luoldrigues](https://github.com/luoldrigues), [@hurick](https://github.com/hurick) e [@luis-grizzo](https://github.com/luis-grizzo));
-
-## Avaliação
-
-Seu projeto será avaliado de acordo com a qualidade e organização de código, arquitetura, além de seus conhecimentos sobre a biblioteca React, JavaScript ou TypeScript, padronizações, portanto, esperamos que seus conhecimentos estejam afiados!
-
-Dito isso, depois de nos dar acesso ao repositório do seu teste, pedimos que por favor nos avise através do email [vagas@liveonbaas.com](mailto:vagas@liveonbaas.com). Avaliaremos o mais rápido possível e também garantimos o feedback!
-
-A equipe Frontend da Live On te deseja boa sorte e esperamos que você se divirta com o desafio!
+:construction_worker_woman: Feito por **Carine Ortolani**.

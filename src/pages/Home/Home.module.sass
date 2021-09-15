@@ -1,0 +1,231 @@
+@import '../../shared/sass/_variables'
+@import '../../shared/sass/_mixins'
+
+.containerSearch
+  @include flex(flex, center, flex-start, column)
+
+  .title
+    @include font(700, 40, 1.1em)
+
+    width: 600px
+    color: $white
+
+  .search
+    @include flex(flex, flex-start)
+
+    width: 95%
+    margin-top: 25px
+
+    .inputSearch
+      @include font(400, 22)
+
+      width: 100%
+      padding: 15px
+
+      outline: none
+      border: none
+      background-color: #f5f5f5
+      border-radius: 4px 0 0 15px
+
+      &::placeholder
+        color: #858585
+
+    .btnSearch
+      width: 90px
+      height: 65px
+      margin-left: -3px
+
+      background-color: $red
+      border-radius: 5px 20px 5px 0px
+      border: none
+
+      cursor: pointer
+
+
+.container
+  @include flex(flex, center, center, column)
+
+  width: 1100px
+  height: auto
+  padding: 0 15px
+  margin: auto
+
+  .btnTop
+    position: fixed
+    bottom: 15px
+    right: 10px
+
+    padding: 20px
+    border: none
+    border-radius: 50%
+    background-color: $red
+    background-position: center
+    background-size: 26px
+    background-repeat: no-repeat
+    background-image: url('../../assets/icons/iconTop.svg')
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%)
+
+    cursor: pointer
+
+    .iconTop
+      width: 25px
+
+  .withoutWarning,
+  .noLoader
+    display: none
+
+  .warning
+    @include flex(flex, center, center)
+    @include font(400, 25, 1.1)
+
+    width: 70%
+    padding: 50px
+    margin: 20px auto 140px
+
+    color: $black
+    border: 1px solid
+    border-color: $red
+    border-radius: 10px 30px
+    background-color: #f8a2a04f
+
+  .end
+    @include font(400, 25, 1.1)
+    @include flex(flex, center, center)
+
+    width: 100%
+    padding: 50px
+    margin: 20px auto 140px
+
+    color: #fbb6bd
+    border: 1px solid
+    border-color: #fbb6bd
+    border-radius: 10px 30px
+    background-color: #ffcdd234
+
+  .cardsList
+    @include flex(flex, flex-start, center, row, wrap)
+    width: 100%
+
+    .cardSkeleton
+      width: 242px
+      height: 340px
+      margin: 15px 10px 25px 15px
+
+      background: linear-gradient( to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 80%), lightgray
+      background-repeat: repeat-y
+      background-size: 150px 300px
+      background-position: 0 0
+      animation: shine 1s infinite
+      border-radius: 10px 30px
+
+      @keyframes shine
+        to
+          background-position: 100% 0, 0 0
+
+  .infiniteScroll
+    @include flex(flex, center, center, column)
+
+    .loader
+      position: relative
+      width: 48px
+      height: 48px
+      margin: 20px
+
+      display: inline-block
+
+      border-radius: 50%
+      border: 2px solid
+      border-color: $black $black transparent transparent
+      animation: rotation 1s linear infinite
+
+      &:after , &:before
+        content: ''
+        position: absolute
+        left: 0
+        right: 0
+        top: 0
+        bottom: 0
+        width:  48px - 8px
+        height:  48px - 8px
+        margin: auto
+
+        border: 2px solid
+        border-color: transparent transparent $red $red
+        border-radius: 50%
+        box-sizing: border-box
+        animation: rotationBack 0.5s linear infinite
+        transform-origin: center center
+
+      &:before
+        width:  48px - 16px
+        height:  48px - 16px
+
+        border-color:$black $black transparent transparent
+        box-sizing: border-box
+        animation: rotation 1.5s linear infinite
+
+      @keyframes rotation
+        0%
+          transform: rotate(0deg)
+        100%
+          transform: rotate(360deg)
+
+      @keyframes rotationBack
+        0%
+          transform: rotate(0deg)
+        100%
+          transform: rotate(-360deg)
+
+@media screen and ( min-width: 1900px )
+  .container,
+  .infiniteScroll
+    width: 1375px
+
+@media screen and ( max-width: 1130px )
+  .container,
+  .infiniteScroll
+    width: 825px
+
+@media screen and ( max-width: 870px )
+  .container,
+  .containerSearch,
+  .infiniteScroll
+    width: 555px
+
+    .title
+      @include font(700, 35, 1.1em)
+      width: 500px
+
+    .btnSearch
+      width: 80px
+      height: 57px
+
+@media screen and ( max-width: 610px )
+  .container,
+  .infiniteScroll
+    width: 455px
+
+    .cardsList
+      @include flex(flex, center, center, row, wrap)
+
+  .containerSearch
+    width: 455px
+
+    .title
+      @include font(700, 25, 1.1em)
+      width: 300px
+
+    .search
+      .inputSearch
+        @include font(400, 18)
+        padding: 10px
+
+      .btnSearch
+          width: 75px
+          height: 55px
+
+@media screen and ( max-width: 455px )
+  .container,
+  .containerSearch,
+  .infiniteScroll
+    width: 90%

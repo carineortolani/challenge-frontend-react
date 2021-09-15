@@ -1,0 +1,69 @@
+@import '../../shared/sass/_variables'
+@import '../../shared/sass/_mixins'
+
+.header
+  @include flex(flex, center)
+
+  width: 100%
+  padding: 20px 0
+  background-color: $black
+
+  .container
+    @include flex(flex, space-between, center, row, wrap)
+    width: 1100px
+    padding: 0 15px
+    margin: auto
+
+    .logo
+      max-height: 85px
+
+    .iconlogo
+      display: none
+
+    .btnTeam
+      @include flex(flex, space-between, center)
+      @include font(400, 20)
+
+      height: 50px
+      padding: 10px
+
+      color: $white
+
+      background-color: $red
+      border: none
+      border-radius: 4px 17px
+
+      cursor: pointer
+
+      .btnTeamIcon
+        width: 24px
+        margin-left: 10px
+
+    @media screen and ( max-width: 710px )
+
+      .logo
+        display: none
+
+      .iconlogo
+        display: inline
+        height: 65px
+
+  @media screen and ( min-width: 1900px )
+    .container
+      width: 1375px
+
+  @media screen and ( max-width: 1130px )
+    .container
+      width: 825px
+
+  @media screen and ( max-width: 870px )
+    .container
+      width: 555px
+
+  @media screen and ( max-width: 610px )
+    .container
+      width: 455px
+
+  @media screen and ( max-width: 455px )
+    .container
+      width: 90%

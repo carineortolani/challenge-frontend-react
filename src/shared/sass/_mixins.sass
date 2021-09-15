@@ -1,0 +1,12 @@
+@import ./_functions
+@import ./_variables
+
+@mixin flex($display: flex, $justify: normal, $align: normal, $direction: row, $wrap: nowrap)
+  display: $display
+  justify-content: $justify
+  align-items: $align
+  flex-direction: $direction
+  flex-wrap: $wrap
+
+@mixin font($weight: normal, $size:16, $height: 1em , $family: $base-family)
+  font: $weight rem($size)/$height $family
